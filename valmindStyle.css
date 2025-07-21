@@ -263,21 +263,81 @@ footer {
 .footer-bottom a { color: var(--grey-color); }
 
 /* --- Responsive Design --- */
+/* --- Add Hamburger Menu Styles --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+}
+.hamburger span {
+    height: 4px;
+    width: 100%;
+    background: var(--primary-color);
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
     
-    .main-header .nav-link { display: none; } /* Simplifies nav on mobile */
-
+    .main-header .nav-link, .main-header .nav-button { display: none; } /* Hide nav links by default */
+    .main-header .nav-mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100vw;
+        background: var(--white-color);
+        box-shadow: 0 2px 8px rgba(97, 97, 137, 0.06);
+        z-index: 1001;
+    }
+    .main-header .nav-mobile a {
+        padding: 16px 0;
+        margin: 0 20px;
+        border-bottom: 1px solid #eee;
+        display: block;
+        text-align: left;
+    }
+    .main-header .nav-mobile .cta-button {
+        margin: 16px 20px;
+    }
+    .hamburger {
+        display: flex;
+    }
     .steps-container { flex-direction: column; }
-    
     .founder-container { flex-direction: column; text-align: center; }
     .founder-text h2 { text-align: center; }
     .founder-text blockquote { text-align: left; }
-
     .footer-content { flex-direction: column; text-align: center; }
     .footer-links { margin-top: 1rem; }
     .social-links { text-align: center; }
+    /* --- Hero Section Button Spacing --- */
+    .hero-content .cta-button.primary {
+        margin-bottom: 16px;
+        width: 100%;
+        max-width: 320px;
+    }
+    .hero-content .secondary-link {
+        display: inline-block;
+        margin-top: 8px;
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* Desktop: Add spacing between hero buttons */
+.hero-content .cta-button.primary {
+    margin-right: 16px;
+}
+.hero-content .secondary-link {
+    margin-left: 8px;
 }
 
 .invoice-checker-modal {
