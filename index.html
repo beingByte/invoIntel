@@ -23,7 +23,21 @@
     <header class="main-header">
         <div class="container">
             <a href="#" class="logo">invointel</a>
-            <nav>
+            <!-- Hamburger menu for mobile -->
+            <div class="hamburger" id="hamburgerMenu" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="desktop-nav">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="#founder-message" class="nav-link">Founder</a>
+                <a href="#final-cta" class="cta-button nav-button">Get Started</a>
+            </nav>
+            <!-- Mobile nav, hidden by default -->
+            <nav class="nav-mobile" id="mobileNav" style="display:none;">
                 <a href="#hero" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#solutions" class="nav-link">Solutions</a>
@@ -205,4 +219,29 @@
     </footer>
 
 </body>
+<script>
+// Hamburger menu toggle for mobile nav
+const hamburger = document.getElementById('hamburgerMenu');
+const mobileNav = document.getElementById('mobileNav');
+
+function toggleMobileNav() {
+    if (mobileNav.style.display === 'flex') {
+        mobileNav.style.display = 'none';
+    } else {
+        mobileNav.style.display = 'flex';
+    }
+}
+
+hamburger.addEventListener('click', toggleMobileNav);
+hamburger.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') toggleMobileNav();
+});
+
+// Optional: Hide mobile nav when a link is clicked
+mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.style.display = 'none';
+    });
+});
+</script>
 </html>
