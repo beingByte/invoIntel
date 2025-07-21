@@ -272,12 +272,17 @@ footer {
     height: 32px;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
 }
 .hamburger span {
     height: 4px;
     width: 100%;
     background: var(--primary-color);
-    margin: 6px 0;
+    margin: 4px 0;
     border-radius: 2px;
     transition: 0.3s;
 }
